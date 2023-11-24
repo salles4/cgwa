@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGWA</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"
+        defer></script>
+    <script src="script.js" defer></script>
+    <style>
+        body{
+            font-size: 14px;
+        }
+        .bg-blue{
+            background-color: #337ab7!important;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-primary text-bg-primary border-bottom border-warning border-5">
+        <div class="container">
+            <span class="navbar-brand fw-bold text-bg-primary">
+                <img src="https://cdn3d.iconscout.com/3d/free/thumb/free-ios-calculator-2978357-2476734.png"
+                    height="40">
+                Grades Calculator
+            </span>
+
+            <span class="nav-text ">
+                <span class="d-none d-sm-inline ">Calculate your CGWA</span> 
+                <button type="button" id="darkToggle" class="btn bi-highlights px-2" style="font-size: 1.1rem;" data-bs-toggle="button"></button>
+            </span>
+            
+        </div>
+    </nav>
+    <div class="container-xl my-4">
+        <h4 class="my-4 mx-4">
+            <strong>Flowchart Information:</strong>
+        </h4>
+        <small>
+            <div class="mx-auto w-75">
+                <p><span class="fw-bold">Flowchart Code:</span>
+                    1-2021-BSIT-MWA</p>
+                <p><span class="fw-bold">Flowchart Name:</span> CURRICULUM FOR BACHELOR OF SCIENCE IN INFORMATION
+                    TECHNOLOGY WITH SPECIALIZATION IN MOBILE AND WEB APPLICATIONS</p>
+            </div>
+        </small>
+        <div class="mx-3">
+            <label class=" mx-4 d-inline" for="selectTerm"><strong>Select Term:</strong></label>
+                <select class="form-select w-auto d-inline" name="selectTerm" id="selectTerm">
+                    <option >Term 1</option>
+                    <option >Term 2</option>
+                    <option >Term 3</option>
+                    <option selected>Term 4</option>
+                </select>
+        </div>
+        <fieldset>
+            <legend class="border-bottom border-2 my-4 py-2"><i class="bi-table mx-2"></i>Grades</legend>
+            <table class="table table-bordered table-striped">
+                <thead class="text-center align-middle " >
+                    <tr>
+                        <th class="bg-blue text-bg-primary col-2">Subject Code</th>
+                        <th class="bg-blue text-bg-primary">Subject Description</th>
+                        <th class="bg-blue text-bg-primary col-2">Final Grade</th>
+                        <th class="bg-blue text-bg-primary col-1">Units</th>
+                    </tr>
+                </thead>
+                <tbody id="tablebody">
+                    <!-- Table Data -->
+
+                </tbody>
+            </table>
+            <div class="alert alert-warning alert-dismissible fade show my-4 container-xs mx-auto" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <strong>Note:</strong> Subjects with asterisk(*) are not included in GWA
+            </div>
+        </fieldset>
+
+
+    </div>
+
+    <nav class="navbar fixed-bottom">
+        <div class="container-fluid">
+            <small>
+                Created by: Salles
+            </small>
+        </div>
+    </nav>
+</body>
+
+</html>
