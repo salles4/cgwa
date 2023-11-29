@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg text-bg-primary bg-gradient border-bottom border-warning border-5">
+    <div class="container">
+        <span class="navbar-brand fw-bold text-light">
+            <img src="https://cdn3d.iconscout.com/3d/free/thumb/free-ios-calculator-2978357-2476734.png" height="40">
+            Grades 
+        </span>
+
+        <span class="nav-text ">
+            <span class="d-none d-sm-inline ">Calculate your CGWA</span>
+            <button type="button" id="darkToggle" class="btn bi-highlights px-2" style="font-size: 1.1rem;"
+                data-bs-toggle="button"></button>
+        </span>
+    </div>
+</nav>
+<script>
+    //js for navbar and themes
+    const savedTheme = localStorage.getItem("theme");
+    let currentTheme = savedTheme || "light";
+
+    $(function() {
+        applyTheme(currentTheme);
+
+        $("#darkToggle").on('click', () => {
+            currentTheme = currentTheme == "light" ? "dark" : "light";
+            localStorage.setItem('theme', currentTheme)
+            applyTheme(currentTheme)
+        })
+
+        function applyTheme(theme) {
+            if (theme == "light") {
+                //document.body.removeAttribute()
+                $(document.body).removeAttr('data-bs-theme')
+            } else {
+                $(document.body).attr("data-bs-theme", 'dark')
+            }
+        }
+    })
+</script>

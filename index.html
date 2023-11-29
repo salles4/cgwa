@@ -11,10 +11,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"
         defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="script.js" defer></script>
     <style>
         body{
             font-size: 14px;
+            transition: 0.1s ease-in-out;
         }
         .bg-blue{
             background-color: #337ab7!important;
@@ -23,21 +25,8 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-primary text-bg-primary border-bottom border-warning border-5">
-        <div class="container">
-            <span class="navbar-brand fw-bold text-bg-primary">
-                <img src="https://cdn3d.iconscout.com/3d/free/thumb/free-ios-calculator-2978357-2476734.png"
-                    height="40">
-                Grades Calculator
-            </span>
-
-            <span class="nav-text ">
-                <span class="d-none d-sm-inline ">Calculate your CGWA</span> 
-                <button type="button" id="darkToggle" class="btn bi-highlights px-2" style="font-size: 1.1rem;" data-bs-toggle="button"></button>
-            </span>
-            
-        </div>
-    </nav>
+    <div id="navbar"></div>
+    <script>$("#navbar").load("navbar.html")</script>
     <div class="container-xl my-4">
         <h4 class="my-4 mx-4">
             <strong>Flowchart Information:</strong>
@@ -52,7 +41,7 @@
         </small>
         <div class="mx-3">
             <label class=" mx-4 d-inline" for="selectTerm"><strong>Select Term:</strong></label>
-                <select class="form-select w-auto d-inline" name="selectTerm" id="selectTerm">
+                <select class="form-select w-auto d-inline" style="font-size: 14px;" name="selectTerm" id="selectTerm">
                     <option >Term 1</option>
                     <option >Term 2</option>
                     <option >Term 3</option>
@@ -60,7 +49,14 @@
                 </select>
         </div>
         <fieldset>
-            <legend class="border-bottom border-2 my-4 py-2"><i class="bi-table mx-2"></i>Grades</legend>
+            <legend class="border-bottom border-2 my-4 py-2 d-flex justify-content-between">
+                <div class="">
+                    <i class="bi-table mx-2"></i>Grades
+                </div>
+                <div class="justify-content-md-end mx-2">
+                    <button disabled class="btn btn-primary btn-sm" type="button"><i class="bi-pencil-square"></i> Edit Grades</button>
+                </div>
+            </legend>
             <table class="table table-bordered table-striped">
                 <thead class="text-center align-middle " >
                     <tr>

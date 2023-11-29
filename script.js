@@ -1,6 +1,6 @@
 let table = document.getElementById('tablebody');
 
-// Term {}: [subCode, subName, grade, units]
+// Term {}: [subCode, subName, grade, units, include gwa?]
 const subs = {
     "Term 1": [
         ["CCINCOML", "INTRODUCTION TO COMPUTING", 4.00, 3.0, true],
@@ -36,22 +36,18 @@ const subs = {
         ["PHYSED14", "TEAM SPORTS", 4.00, 2.0, false]
     ]
 }
-
-//change table when selected term changed
 const termSelect = document.getElementById('selectTerm')
-termSelect.addEventListener('change', () => {
-    appendRows(subs[termSelect.value])
-})
+$(function(){
+    //$("#navbar").load("navbar.html")
 
-const toggleDark = document.getElementById('darkToggle');
-toggleDark.addEventListener('click', () => {
-    console.log('clicked', toggleDark.classList.contains("active"))
-    if (toggleDark.classList.contains("active")){
-        document.body.setAttribute("data-bs-theme", 'dark')
-    }else{
-        document.body.removeAttribute('data-bs-theme')
-    }
-})
+    //change table when selected term changed
+    $("#selectTerm").on("change", () => {
+        appendRows(subs[$("#selectTerm").val()])
+    })
+
+    
+});
+
 
 //returns cgwa until term given
 function cgwa(termLimit){
@@ -71,6 +67,19 @@ function cgwa(termLimit){
     })
     return((totalGrUnit[0] / totalGrUnit[1]).toFixed(2))
 
+}
+
+function gwa(term){
+    let totalGrAndUnit = [0,0]
+    term.forEach(sub => {
+        if (sub[4]){
+            totalGrAndUnit = [
+                totalGrAndUnit[0]+(sub[2]*sub[3]),
+                totalGrAndUnit[1]+sub[3]
+            ]
+        }
+    })
+    return (totalGrAndUnit[0] / totalGrAndUnit[1]).toFixed(2)
 }
 
 //put table data of given term
