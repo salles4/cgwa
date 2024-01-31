@@ -34,6 +34,14 @@ const subs = {
         ["GERIZ01X", "LIFE AND WORKS OF RIZAL", 3.50, 3.0, true],
         ["MCWTS02X", "NATIONAL SERVICE TRAINING PROGRAM 2", 4.00, 3.0, false],
         ["PHYSED14", "TEAM SPORTS", 4.00, 2.0, false]
+    ],
+    "Term 5": [
+        ["CCOMPORG", "COMPUTER ORGANIZATION AND ARCHITECTURE", 3.00, 3.0, true],
+        ["CTAPDEVL", "APPLICATIONS DEVELOPMENT AND EMERGING TECHNOLOGIES", 4.00, 3.0, true],
+        ["CTINFMGL", "INFORMATION MANAGEMENT", 3.50, 3.0, true],
+        ["GEACM01X", "ADVANCED COMMUNICATION", 4.00, 3.0, true],
+        ["GEITE01X", "LIVING IN THE I.T. ERA", 4.00, 3.0, true],
+        ["MCNAT01R", "NATIONALIAN COURSE", 4.00, 3.0, true]
     ]
 }
 const termSelect = document.getElementById('selectTerm')
@@ -79,7 +87,7 @@ function gwa(term){
             ]
         }
     })
-    return (totalGrAndUnit[0] / totalGrAndUnit[1]).toFixed(2)
+    return Math.round(totalGrAndUnit[0] / totalGrAndUnit[1]).toFixed(2)
 }
 
 //put table data of given term
@@ -109,7 +117,7 @@ function appendRows(data){
     </tr>
     <tr>
         <th colspan="3">General Weighted Average:</th>
-        <td class="text-center fw-bold">${(totalGrAndUnit[0]/totalGrAndUnit[1]).toFixed(2)}</td>
+        <td class="text-center fw-bold">${(totalGrAndUnit[0] / totalGrAndUnit[1]).toFixed(2)}</td>
     </tr>
     <tr>
         <th colspan="3">Cumulated GWA from Term 1 to ${termSelect.value}:</th>
