@@ -36,7 +36,7 @@ const subs = {
         ["PHYSED14", "TEAM SPORTS", 4.00, 2.0, false]
     ],
     "Term 5": [
-        ["CCOMPORG", "COMPUTER ORGANIZATION AND ARCHITECTURE", 3.00, 3.0, true],
+        ["CCOMPORG", "COMPUTER ORGANIZATION AND ARCHITECTURE", 3.50, 3.0, true],
         ["CTAPDEVL", "APPLICATIONS DEVELOPMENT AND EMERGING TECHNOLOGIES", 4.00, 3.0, true],
         ["CTINFMGL", "INFORMATION MANAGEMENT", 3.50, 3.0, true],
         ["GEACM01X", "ADVANCED COMMUNICATION", 4.00, 3.0, true],
@@ -128,3 +128,6 @@ function appendRows(data){
 }
 
 appendRows(subs[termSelect.value])
+
+const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
