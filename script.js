@@ -46,7 +46,7 @@ const subs = {
 }
 const termSelect = document.getElementById('selectTerm')
 $(function(){
-    //$("#navbar").load("navbar.html")
+    $("#navbar").load("navbar.html")
 
     //change table when selected term changed
     $("#selectTerm").on("change", () => {
@@ -95,7 +95,7 @@ function appendRows(data){
     table.innerHTML = '';
     let strAppend = ``;
     let allSubUnit = 0
-    let totalGrAndUnit = [0, 0] //total [0]: final grade [1]: unit
+    let totalGrAndUnit = [0, 0] //total - [0]: final grade [1]: unit
     data.forEach(sub => {
         strAppend += `
         <tr>
@@ -110,6 +110,7 @@ function appendRows(data){
             totalGrAndUnit[1] += sub[3]
         }
     })
+    const FINALCGWA = cgwa(termSelect.value);
     strAppend += `
     <tr style="border-top: 2px double;">
         <th colspan="3">Total Units:</th>
@@ -121,13 +122,25 @@ function appendRows(data){
     </tr>
     <tr>
         <th colspan="3">Cumulated GWA from Term 1 to ${termSelect.value}:</th>
-        <td class="text-center fw-bold">${cgwa(termSelect.value)}</td>
+        <td class="${
+            FINALCGWA >= 3.75 ? "cgwa-high" : 
+            FINALCGWA >= 3.5 ? "cgwa-mid" : ""
+        } text-center fw-bold" data-bs-container="body" 
+            data-bs-trigger="hover" data-bs-toggle="popover" 
+            data-bs-custom-class="fw-bold" 
+            data-bs-content="${
+                FINALCGWA >= 3.75 ? "Summa Cum Laude" : 
+                FINALCGWA >= 3.5 ? "Magna Cum Laude" : 
+                FINALCGWA >= 3.25 ? "Cum Laude" : ""
+            }">
+            ${FINALCGWA}
+        </td>
     </tr>`
 
     table.insertAdjacentHTML("afterbegin", strAppend)
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 }
 
 appendRows(subs[termSelect.value])
 
-const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
