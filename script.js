@@ -1,6 +1,7 @@
 let table = document.getElementById('tablebody');
 
 // Term {}: [subCode, subName, grade, units, include gwa?]
+const SUBCODE = 0, SUBNAME = 1, GRADE = 2, UNITS = 3, NON_GWA_SUB = 4;
 const subs = {
     "Term 1": [
         ["CCINCOML", "INTRODUCTION TO COMPUTING", 4.00, 3.0, true],
@@ -52,7 +53,7 @@ $(function(){
     $("#selectTerm").on("change", () => {
         appendRows(subs[$("#selectTerm").val()])
     })
-
+    
     
 });
 
@@ -60,12 +61,13 @@ $(function(){
 //returns cgwa until term given
 function cgwa(termLimit){
     let terms = Object.keys(subs)
-    let totalGrUnit = [0,0]
+    let totalGr = 0
+    let totalUnit = 0
     terms.every(term => {
         subs[term].forEach(sub => {
             if(sub[4]){
-                totalGrUnit[0] += sub[2] * sub[3]
-                totalGrUnit[1] += sub[3]
+                totalGr += sub[2] * sub[3]
+                totalUnit += sub[3]
             }
         })
         if(term == termLimit){
@@ -73,7 +75,7 @@ function cgwa(termLimit){
         }
         return true;
     })
-    return((totalGrUnit[0] / totalGrUnit[1]).toFixed(2))
+    return ((totalGr / totalUnit).toFixed(2))
 
 }
 
@@ -95,19 +97,19 @@ function appendRows(data){
     table.innerHTML = '';
     let strAppend = ``;
     let allSubUnit = 0
-    let totalGrAndUnit = [0, 0] //total - [0]: final grade [1]: unit
+    let totalGr = 0, totalUnit = 0;
     data.forEach(sub => {
         strAppend += `
         <tr>
-            <td>${sub[0]}${sub[4] ? "" : `<span style="color: red;">*</span>`}</td>
-            <td>${sub[1]}</td>
-            <td class="text-center">${Number(sub[2]).toFixed(2)}</td>
-            <td class="text-center">${Number(sub[3]).toFixed(1)}</td>
+            <td>${sub[SUBCODE]}${sub[NON_GWA_SUB] ? "" : `<span style="color: red;">*</span>`}</td>
+            <td>${sub[SUBNAME]}</td>
+            <td class="text-center">${Number(sub[GRADE]).toFixed(2)}</td>
+            <td class="text-center">${Number(sub[UNITS]).toFixed(1)}</td>
         </tr>`
-        allSubUnit += sub[3];
-        if(sub[4]){
-            totalGrAndUnit[0] += sub[2] * sub[3]
-            totalGrAndUnit[1] += sub[3]
+        allSubUnit += sub[UNITS];
+        if(sub[NON_GWA_SUB]){
+            totalGr += sub[2] * sub[3]
+            totalUnit += sub[3]
         }
     })
     const FINALCGWA = cgwa(termSelect.value);
@@ -118,7 +120,7 @@ function appendRows(data){
     </tr>
     <tr>
         <th colspan="3">General Weighted Average:</th>
-        <td class="text-center fw-bold">${(totalGrAndUnit[0] / totalGrAndUnit[1]).toFixed(2)}</td>
+        <td class="text-center fw-bold">${(totalGr / totalUnit).toFixed(2)}</td>
     </tr>
     <tr>
         <th colspan="3">Cumulated GWA from Term 1 to ${termSelect.value}:</th>
