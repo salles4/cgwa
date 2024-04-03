@@ -46,16 +46,20 @@ const subs = {
     ]
 }
 const termSelect = document.getElementById('selectTerm')
+const id = "2022-153827"
 $(function(){
     $("#navbar").load("navbar.html")
-
+    appendRows(subs[$("#selectTerm").val()])
     //change table when selected term changed
     $("#selectTerm").on("change", () => {
         appendRows(subs[$("#selectTerm").val()])
     })
-    
-    
+    $("#edit").on("click", () => {
+        let selectedTerm = encodeURIComponent($("#selectTerm").val())
+        window.location.href = `edit.html?id=${id}&term=${selectedTerm}`
+    })
 });
+
 
 
 //returns cgwa until term given
@@ -143,6 +147,4 @@ function appendRows(data){
     const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
     const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 }
-
-appendRows(subs[termSelect.value])
 

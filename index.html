@@ -13,6 +13,7 @@
         defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="script.js" defer></script>
+    <script src="json-script.js" defer></script>
     <style>
         body{
             font-size: 14px;
@@ -52,8 +53,8 @@
 <body>
     <div id="navbar"></div>
     
-    <div class="container-xl my-4">
-        <h4 class="my-4 mx-4">
+    <div class="container-lg my-4">
+        <!-- <h4 class="my-4 mx-4">
             <strong>Flowchart Information:</strong>
         </h4>
         <small>
@@ -63,7 +64,7 @@
                 <p><span class="fw-bold">Flowchart Name:</span> CURRICULUM FOR BACHELOR OF SCIENCE IN INFORMATION
                     TECHNOLOGY WITH SPECIALIZATION IN MOBILE AND WEB APPLICATIONS</p>
             </div>
-        </small>
+        </small> -->
         <div class="mx-3">
             <label class=" mx-4 d-inline" for="selectTerm"><strong>Select Term:</strong></label>
                 <select class="form-select w-auto d-inline" style="font-size: 14px;" name="selectTerm" id="selectTerm">
@@ -81,11 +82,11 @@
                 </div>
                 <div class="justify-content-md-end mx-2" data-bs-trigger="hover focus" 
                 data-bs-toggle="popover" data-bs-content="Coming Soon!">
-                    <button disabled class="btn btn-primary btn-sm" type="button"><i class="bi-pencil-square"></i> Edit Grades</button>
+                    <button id="edit" class="btn btn-primary btn-sm" type="button"><i class="bi-pencil-square"></i> Edit Grades</button>
                 </div>
             </legend>
             <table class="table table-bordered table-striped">
-                <thead class="text-center align-middle " >
+                <thead class="text-center align-middle" >
                     <tr>
                         <th class="bg-blue text-bg-primary col-2">Subject Code</th>
                         <th class="bg-blue text-bg-primary">Subject Description</th>
