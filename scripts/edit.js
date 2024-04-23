@@ -1,21 +1,23 @@
 let ID = "2022-153827";
-let TERM = "Term 1";
+const TERM = localStorage.getItem("edit-term") || "Term 1";
+if(!TERM){
+    window.location.href = `index.html`
+}
+localStorage.removeItem("edit-term")
 let grades;
 let subjects;
 
-let queryString = window.location.search;
-let queryParams = new URLSearchParams(queryString.substring(1));
-if(queryParams.has("term")){
-    TERM = decodeURIComponent(queryParams.get("term"));
+window.onbeforeunload = () => {
+    return false;
 }
-if (queryParams.has("id")){
-    ID = decodeURIComponent(queryParams.get("id"));
-}
-console.log(TERM)
 
+console.log(TERM)
 $(function () {
     $("#navbar").load("navbar.html")
-    fetch("data.json")
+    $("#discard").on("click", () => {
+        window.location.href = `index.html`
+    })
+    fetch("data/data.json")
         .then(response => response.json())
         .then(json => {
             grades = json[ID].grades;
@@ -33,7 +35,7 @@ function addRows(){
             <td>${subCode}${subjects[subCode].include ? "" : `<span style="color: red;">*</span>`}</td>
             <td>${subjects[subCode].name}</td>
             <td class="text-center">
-                <select class="form-select w-75 d-inline" id="${subCode}">
+                <select class="form-select w-100 d-inline" id="${subCode}">
                     <option>4.00</option>
                     <option>3.50</option>
                     <option>3.00</option>

@@ -46,7 +46,11 @@ const subs = {
     ]
 }
 const termSelect = document.getElementById('selectTerm')
-const id = "2022-153827"
+
+const savedID = localStorage.getItem("id") || "2022-153827";
+localStorage.removeItem("edit-term")
+
+
 $(function(){
     $("#navbar").load("navbar.html")
     appendRows(subs[$("#selectTerm").val()])

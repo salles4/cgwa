@@ -12,42 +12,10 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"
         defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="script.js" defer></script>
-    <script src="json-script.js" defer></script>
-    <style>
-        body{
-            font-size: 14px;
-            transition: 0.1s ease-in-out;
-        }
-        .bg-blue{
-            background-color: #337ab7!important;
-        }
-        .cgwa-high{
-            background: linear-gradient(45deg, #ffa2ff, #ff89eb,#fff56c, #feffbe, #fdffa4);
-            background-size: 400% 400%;
-            animation: gradient 12s ease-in-out infinite;
-            color: black !important;
-        }
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-        .cgwa-mid{
-            background: linear-gradient(45deg, #ff4fd3,  #fbff22);
-            color: black !important;
-        }
-        
-        .custom-popover{
-            font-weight: 600;
-        }
-    </style>
+
+    <!-- <script src="script.js" defer></script> -->
+    <script src="scripts/json-script.js" defer></script>
+    <link rel="stylesheet" href="styles/home.css">
 </head>
 
 <body>
@@ -80,8 +48,7 @@
                 <div class="">
                     <i class="bi-table mx-2"></i>Grades
                 </div>
-                <div class="justify-content-md-end mx-2" data-bs-trigger="hover focus" 
-                data-bs-toggle="popover" data-bs-content="Coming Soon!">
+                <div class="mx-2">
                     <button id="edit" class="btn btn-primary btn-sm" type="button"><i class="bi-pencil-square"></i> Edit Grades</button>
                 </div>
             </legend>
@@ -101,7 +68,10 @@
             </table>
             <div class="alert alert-warning alert-dismissible fade show my-4 container-xs mx-auto" role="alert">
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                <strong>Note:</strong> Subjects with asterisk(*) are not included in GWA and CGWA
+                <div class="d-flex justify-content-between">
+                    <span><strong>Note:</strong> Subjects with asterisk(*) are not included in GWA and CGWA</span>
+                    <a href="#">Do not show again</a>
+                </div>
             </div>
         </fieldset>
 

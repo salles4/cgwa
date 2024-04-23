@@ -11,13 +11,20 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"
         defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="edit.js" defer></script>
+    <script src="scripts/edit.js" defer></script>
 </head>
 <body>
     <div id="navbar"></div>
     <fieldset class="container-lg">
-        <legend class="border-bottom border-2 my-4 py-2">
-            <i class="bi-table mx-2"></i>Edit Grades
+        <legend class="border-bottom border-2 my-4 py-2 d-flex justify-content-between">
+            <div>
+                <i class="bi-table mx-2"></i>Edit Grades
+            </div> 
+            <div>
+                <small style="font-size: 14px; color: red; margin-right: 1em;">Leaving the site will discard changes</small>
+                <button id="discard" class="btn btn-danger"><i class="bi-trash"></i> Discard</button>
+                <button id="save" class="btn btn-success" type="button"><i class="bi-download"></i> Save</button>
+            </div>
         </legend>
         <table class="table table-bordered table-striped">
             <thead class="text-center align-middle">

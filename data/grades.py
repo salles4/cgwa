@@ -44,3 +44,14 @@ def grade():
             f'"{sub[0]}":{{"name":"{sub[1]}","unit":{sub[3]},"include":{sub[4]}}},'
         )
     print(jsonText)
+
+
+def toCSV():
+    csvText = ""
+    for sub in subjects:
+        csvText += (
+            f'{sub[0]},{sub[1]},{sub[3]},{sub[4]}\n'
+        )
+    print(csvText)
+
+toCSV()

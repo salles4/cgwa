@@ -2,7 +2,7 @@ let subjects;
 
 $(function(){
     $("#navbar").load("navbar.html")
-    fetch("data.json")
+    fetch("data/data.json")
         .then(response => response.json())
         .then(json => {
             subjects = json.subjects;
