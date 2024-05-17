@@ -43,6 +43,13 @@ const subs = {
         ["GEACM01X", "ADVANCED COMMUNICATION", 4.00, 3.0, true],
         ["GEITE01X", "LIVING IN THE I.T. ERA", 4.00, 3.0, true],
         ["MCNAT01R", "NATIONALIAN COURSE", 4.00, 3.0, true]
+    ],
+    "Term 6": [
+        ["CCQUAMET", "QUANTITATIVE METHODS", 3.50, 3.0, true],
+        ["CTADVDBL", "ADVANCED DATABASE SYSTEMS", 3.50, 3.0, true],
+        ["CTBASNTL", "BASIC NETWORKING", 3.50, 3.0, true],
+        ["CTPRFISS", "SOCIAL AND PROFESSIONAL ISSUES", 3.50, 3.0, true],
+        ["CTWBDEVL", "WEB SYSTEMS AND TECHNOLOGIES", 4.00, 3.0, true]
     ]
 }
 const termSelect = document.getElementById('selectTerm')
