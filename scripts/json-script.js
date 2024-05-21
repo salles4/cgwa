@@ -1,18 +1,40 @@
-let grades = {};
-let sub_list = {};
+import { db, ref, get } from "../firebase/firebase.js";
+
+let grades;
+let sub_list;
 
 $(function () {
-    initializeData();
+    initializeData().catch(error => console.error(error));
+    initializeEvents();
 })
 
+async function initializeData(){
+    const snapshotInfo = await get(ref(db, "2022-153827/"));
+    grades = snapshotInfo.val().grades;
+    const snapshotSub = await get(ref(db, "subjects/"));
+    sub_list = snapshotSub.val();
+
+    console.log(snapshotInfo);
+    console.log(snapshotSub);
+    const selectedTerm = $("#selectTerm").val()
+    appendData(grades[selectedTerm])
+}
+
+/**
+ * Appends each grade for the selected term
+ * @param {object} term  - Term grades object with {subcode: grade, subcode2: grade}
+ */
 function appendData(term) {
+    // Alphabetize subject list
     let subCodes = Object.keys(term)
     subCodes.sort()
 
     let totalUnits = 0;
     let toAppend = "";
+    // Loop through all {subCode: grades}
     subCodes.forEach(subCode => {
-        let sub = sub_list[subCode]
+        let sub = sub_list[subCode] // Get details of the subCode
+        // Adds rows per subject in the table
         toAppend +=
             `
             <tr>
@@ -24,9 +46,10 @@ function appendData(term) {
         `
         totalUnits += sub.unit;
     })
-    let termSelected = $("#selectTerm").val()
+    let termSelected = parseInt($("#selectTerm").val()) + 1
     let FINALCGWA = Number(cgwa(termSelected)).toFixed(2)
-
+    // Adds Total Units, GWA, CGWA to the table
+    // Also applies different css depending on cgwa
     toAppend += `
         <tr style="border-top: 2px double;">
         <th colspan="3">Total Units:</th>
@@ -37,7 +60,7 @@ function appendData(term) {
             <td class="text-center fw-bold">${Number(gwa(term)).toFixed(2)}</td>
         </tr>
         <tr>
-            <th colspan="3">Cumulated GWA from Term 1 to ${termSelected}:</th>
+            <th colspan="3">Cumulated GWA ${termSelected == 1 ? "" : `from Term 1 to ${termSelected}:`} </th>
             <td class="${FINALCGWA >= 3.75 ? "cgwa-high" :
                 FINALCGWA >= 3.5 ? "cgwa-mid" : ""
             } text-center fw-bold" data-bs-container="body" 
@@ -58,6 +81,12 @@ function appendData(term) {
     const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 }
 
+/**
+ * Computes the General Weighted Average of given term grades by getting the total honor points
+ * (Final Grade * Unit) and dividing with total units for the term.
+ * @param {object} termObject Objects that contains grades per subject in selected term {subcode: grade}
+ * @returns GWA in two decimal places
+ */
 function gwa(termObject) {
     let totalHonorPoints = 0;
     let totalUnits = 0
@@ -65,7 +94,6 @@ function gwa(termObject) {
         if (!sub_list[subcode].include) {
             continue;
         }
-        console.log(subcode)
         let grade = termObject[subcode]
         let units = sub_list[subcode].unit
         totalHonorPoints += grade * units
@@ -74,12 +102,17 @@ function gwa(termObject) {
     return Math.round((totalHonorPoints / totalUnits) * 100) / 100
 }
 
+/**
+ * Calculates CGWA by getting the honor points of all subjects and dividing to total units
+ * Total (Final Grade * Unit) / Total Units
+ * @param {string} termLimit term where the cgwa will compute until
+ * @returns CGWA of all terms until termLimit
+ */
 function cgwa(termLimit) {
     let totalHonorPoints = 0;
     let totalUnits = 0
     for (const term in grades) {
         let termObject = grades[term]
-        console.log(termObject)
         Object.keys(termObject).forEach(subcode => {
             if (sub_list[subcode].include) {
                 totalHonorPoints += termObject[subcode] * sub_list[subcode].unit
@@ -94,23 +127,24 @@ function cgwa(termLimit) {
     return Math.round((totalHonorPoints / totalUnits) * 100) / 100
 }
 
-function initializeData() {
-    fetch("../data/data.json")
-        .then(response => response.json())
-        .then(value => {
-            grades = value["2022-153827"].grades;
-            sub_list = value["subjects"]
-            appendData(grades[$("#selectTerm").val()])
-        })
-        .catch(error => console.error(error))
-
+function initializeEvents() {
     $("#selectTerm").on("change", () => {
-        console.log(grades[$("#selectTerm").val()])
         appendData(grades[$("#selectTerm").val()])
     })
-    $("#navbar").load("navbar.html")
+
+    $("#navbar").load("../../navbar.html")
+
     $("#edit").on("click", () => {
         localStorage.setItem("edit-term", $("#selectTerm").val())
         window.location.href = `edit.html`
     })
+
+    if (localStorage.getItem("no-asterisk")){
+        $("#asterisk").empty()
+    }else{
+        $("#asterisk").on("click", () => {
+            localStorage.setItem("no-asterisk", true)
+            $("#asterisk").empty()
+        })
+    }
 }

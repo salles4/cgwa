@@ -14,7 +14,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <!-- <script src="script.js" defer></script> -->
-    <script src="scripts/json-script.js" defer></script>
+    <script src="scripts/json-script.js" type="module"></script>
+    <!-- <script src="firebase/firebase.js" type="module"></script> -->
     <link rel="stylesheet" href="styles/home.css">
 </head>
 
@@ -36,11 +37,11 @@
         <div class="mx-3">
             <label class=" mx-4 d-inline" for="selectTerm"><strong>Select Term:</strong></label>
                 <select class="form-select w-auto d-inline" style="font-size: 14px;" name="selectTerm" id="selectTerm">
-                    <option >Term 1</option>
-                    <option >Term 2</option>
-                    <option >Term 3</option>
-                    <option >Term 4</option>
-                    <option selected>Term 5</option>
+                    <option value="0">Term 1</option>
+                    <option value="1">Term 2</option>
+                    <option value="2">Term 3</option>
+                    <option value="3">Term 4</option>
+                    <option value="4" selected>Term 5</option>
                 </select>
         </div>
         <fieldset>
@@ -66,11 +67,13 @@
 
                 </tbody>
             </table>
-            <div class="alert alert-warning alert-dismissible fade show my-4 container-xs mx-auto" role="alert">
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                <div class="d-flex justify-content-between">
-                    <span><strong>Note:</strong> Subjects with asterisk(*) are not included in GWA and CGWA</span>
-                    <a href="#">Do not show again</a>
+            <div id="asterisk">
+                <div class="alert alert-warning alert-dismissible fade show my-4 container-xs mx-auto" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <div class="d-flex justify-content-between">
+                        <span><strong>Note:</strong> Subjects with asterisk(*) are not included in GWA and CGWA</span>
+                        <a href="#">Do not show again</a>
+                    </div>
                 </div>
             </div>
         </fieldset>
