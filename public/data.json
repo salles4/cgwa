@@ -1,0 +1,207 @@
+{
+    "subjects":{
+        "CCINCOML": {
+            "name": "INTRODUCTION TO COMPUTING",
+            "unit": 3.0,
+            "include": true
+        },
+        "CCPRGG1L": {
+            "name": "FUNDAMENTALS OF PROGRAMMING",
+            "unit": 3.0,
+            "include": true
+        },
+        "GEPCM01X": {
+            "name": "PURPOSIVE COMMUNICATION",
+            "unit": 3.0,
+            "include": true
+        },
+        "GERPH01X": {
+            "name": "READINGS IN THE PHILIPPINE HISTORY",
+            "unit": 3.0,
+            "include": true
+        },
+        "GEUTS01X": {
+            "name": "UNDERSTANDING THE SELF",
+            "unit": 3.0,
+            "include": true
+        },
+        "PHYSED11": {
+            "name": "PHYSICAL FITNESS / AEROBICS",
+            "unit": 2.0,
+            "include": false
+        },
+        "CCPRGG2L": {
+            "name": "INTERMEDIATE PROGRAMMING",
+            "unit": 3.0,
+            "include": true
+        },
+        "CTHASOPL": {
+            "name": "HARDWARE, SOFTWARE AND PERIPHERAL INSTALLATION",
+            "unit": 1.0,
+            "include": true
+        },
+        "GECTW01X": {
+            "name": "THE CONTEMPORARY WORLD",
+            "unit": 3.0,
+            "include": true
+        },
+        "GEMMW01X": {
+            "name": "MATHEMATICS IN THE MODERN WORLD",
+            "unit": 3.0,
+            "include": true
+        },
+        "GESTS01X": {
+            "name": "SCIENCE, TECHNOLOGY AND SOCIETY",
+            "unit": 3.0,
+            "include": true
+        },
+        "PHYSED12": {
+            "name": "RHYTHMIC ACTIVITIES",
+            "unit": 2.0,
+            "include": false
+        },
+        "CCDISTR1": {
+            "name": "DISCRETE STRUCTURES 1",
+            "unit": 3,
+            "include": true
+        },
+        "CCOBJPGL": {
+            "name": "OBJECT-ORIENTED PROGRAMMING",
+            "unit": 3,
+            "include": true
+        },
+        "GEART01X": {
+            "name": "ART APPRECIATION",
+            "unit": 3,
+            "include": true
+        },
+        "GEENT01X": {
+            "name": "THE ENTREPRENEURIAL MIND",
+            "unit": 3,
+            "include": true
+        },
+        "GEETH01X": {
+            "name": "ETHICS",
+            "unit": 3.0,
+            "include": true
+        },
+        "MCWTS01X": {
+            "name": "NATIONAL SERVICE TRAINING PROGRAM 1",
+            "unit": 3,
+            "include": false
+        },
+        "PHYSED13": {
+            "name": "INDIVIDUAL AND DUAL SPORTS",
+            "unit": 2.0,
+            "include": false
+        },
+        "CCDATRCL": {
+            "name": "DATA STRUCTURES AND ALGORITHMS",
+            "unit": 3.0,
+            "include": true
+        },
+        "CCPLTFRL": {
+            "name": "PLATFORM TECHNOLOGIES",
+            "unit": 3.0,
+            "include": true
+        },
+        "GEFID01X": {
+            "name": "WIKA AT PANITIKAN SA PAGPAPATIBAY NG PIILIPINONG IDENTIDAD",
+            "unit": 3.0,
+            "include": true
+        },
+        "GERIZ01X": {
+            "name": "LIFE AND WORKS OF RIZAL",
+            "unit": 3.0,
+            "include": true
+        },
+        "MCWTS02X": {
+            "name": "NATIONAL SERVICE TRAINING PROGRAM 2",
+            "unit": 3.0,
+            "include": false
+        },
+        "PHYSED14": {
+            "name": "TEAM SPORTS",
+            "unit": 2.0,
+            "include": false
+        },
+        "CCOMPORG": {
+            "name": "COMPUTER ORGANIZATION AND ARCHITECTURE",
+            "unit": 3.0,
+            "include": true
+        },
+        "CTAPDEVL": {
+            "name": "APPLICATIONS DEVELOPMENT AND EMERGING TECHNOLOGIES",
+            "unit": 3.0,
+            "include": true
+        },
+        "CTINFMGL": {
+            "name": "INFORMATION MANAGEMENT",
+            "unit": 3.0,
+            "include": true
+        },
+        "GEACM01X": {
+            "name": "ADVANCED COMMUNICATION",
+            "unit": 3.0,
+            "include": true
+        },
+        "GEITE01X": {
+            "name": "LIVING IN THE I.T. ERA",
+            "unit": 3.0,
+            "include": true
+        },
+        "MCNAT01R": {
+            "name": "NATIONALIAN COURSE",
+            "unit": 3.0,
+            "include": true
+        }
+    },
+    "2022-153827":{
+        "name": "Francis James Salles",
+        "id": "2022-153827",
+        "course": "BSIT-MWA",
+        "grades": [
+            {
+                "CCINCOML": 4.00,
+                "CCPRGG1L": 4.00,
+                "GEPCM01X": 4.00,
+                "GERPH01X": 4.00,
+                "GEUTS01X": 3.00,
+                "PHYSED11": 4.00
+            },
+            {
+                "CCPRGG2L": 4.00,
+                "CTHASOPL": 4.00,
+                "GECTW01X": 4.00,
+                "GEMMW01X": 3.50,
+                "GESTS01X": 4.00,
+                "PHYSED12": 4.00
+            },
+            {
+                "CCDISTR1": 3.50,
+                "CCOBJPGL": 4.00,
+                "GEART01X": 4.00,
+                "GEENT01X": 3.50,
+                "GEETH01X": 4.00,
+                "MCWTS01X": 3.50,
+                "PHYSED13": 4.00
+            },
+            {
+                "CCDATRCL": 4.00,
+                "CCPLTFRL": 3.00,
+                "GEFID01X": 3.50,
+                "GERIZ01X": 3.50,
+                "MCWTS02X": 4.00,
+                "PHYSED14": 4.00
+            },
+            {
+                "CCOMPORG": 3.50,
+                "CTAPDEVL": 4.00,
+                "CTINFMGL": 3.50,
+                "GEACM01X": 4.00,
+                "GEITE01X": 4.00,
+                "MCNAT01R": 4.00
+            }
+        ]
+    }
+}

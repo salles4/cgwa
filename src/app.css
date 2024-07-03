@@ -1,0 +1,9 @@
+@import "../node_modules/bootstrap/";
+
+body, td, th, .d-flex{
+  transition: background-color 0.3s ease-in-out;
+  font-size: 14px;
+}
+.bg-blue {
+  background-color: #337ab7 !important;
+}
