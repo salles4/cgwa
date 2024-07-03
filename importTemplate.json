@@ -1,0 +1,50 @@
+[
+  {
+      "CCINCOML": 4.00,
+      "CCPRGG1L": 4.00,
+      "GEPCM01X": 4.00,
+      "GERPH01X": 4.00,
+      "GEUTS01X": 4.00,
+      "PHYSED11": 4.00
+  },
+  {
+      "CCPRGG2L": 4.00,
+      "CTHASOPL": 4.00,
+      "GECTW01X": 4.00,
+      "GEMMW01X": 4.00,
+      "GESTS01X": 4.00,
+      "PHYSED12": 4.00
+  },
+  {
+      "CCDISTR1": 4.00,
+      "CCOBJPGL": 4.00,
+      "GEART01X": 4.00,
+      "GEENT01X": 4.00,
+      "GEETH01X": 4.00,
+      "MCWTS01X": 4.00,
+      "PHYSED13": 4.00
+  },
+  {
+      "CCDATRCL": 4.00,
+      "CCPLTFRL": 4.00,
+      "GEFID01X": 4.00,
+      "GERIZ01X": 4.00,
+      "MCWTS02X": 4.00,
+      "PHYSED14": 4.00
+  },
+  {
+      "CCOMPORG": 4.00,
+      "CTAPDEVL": 4.00,
+      "CTINFMGL": 4.00,
+      "GEACM01X": 4.00,
+      "GEITE01X": 4.00,
+      "MCNAT01R": 4.00
+  },
+  {
+      "CCQUAMET": 4.00,
+      "CTADVDBL": 4.00,
+      "CTBASNTL": 4.00,
+      "CTPRFISS": 4.00,
+      "CTWBDEVL": 4.00
+  }
+]
