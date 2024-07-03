@@ -13,6 +13,7 @@
   on:submit|preventDefault={() => {
     localStorage.setItem("stud-id", studID)
     replace('/')
+    location.reload();
   }}
   transition:slide={{ duration: 400, axis: "y" }}
   class="d-flex flex-column gap-1 justify-content-center align-items-center"

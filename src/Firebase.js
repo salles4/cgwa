@@ -3,7 +3,7 @@ import { getDatabase } from "firebase/database";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyApLDv1ekr_tegGyjOUdPhTgU6LOZgACss",
+  apiKey: import.meta.env.VITE_FIREBASE_KEY,
   authDomain: "cgwa-df8c2.firebaseapp.com",
   databaseURL: "https://cgwa-df8c2-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "cgwa-df8c2",
