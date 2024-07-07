@@ -1,14 +1,14 @@
 <script>
-  import { fade } from 'svelte/transition';
+  import { fade } from "svelte/transition";
   import { push } from "svelte-spa-router";
-  import TableGrade from '../components/TableGrade.svelte'
-  import { Alert } from 'bootstrap';
+  import TableGrade from "../components/TableGrade.svelte";
+  import { Alert } from "bootstrap";
   let termSelect;
 
-  new Alert(document.querySelector("#alert"))
+  new Alert(document.querySelector("#alert"));
 </script>
 
-<div class="container-lg my-4" in:fade={{duration:400}}>
+<div class="container-lg my-4" in:fade={{ duration: 400 }}>
   <!-- <h4 class="my-4 mx-4">
     <strong>Flowchart Information:</strong>
   </h4>
@@ -51,13 +51,18 @@
         <i class="bi-table mx-2"></i>Grades
       </div>
       <div class="mx-2">
-        <button id="edit" class="btn btn-primary btn-sm" type="button" on:click={()=>{push(`/edit?term=${termSelect}`)}}
-          ><i class="bi-pencil-square"></i> Edit</button
+        <button
+          id="edit"
+          class="btn btn-primary btn-sm"
+          type="button"
+          on:click={() => {
+            push(`/edit?term=${termSelect}`);
+          }}><i class="bi-pencil-square"></i> Edit</button
         >
       </div>
     </legend>
     {#if termSelect}
-    <TableGrade termSelect={termSelect}/>
+      <TableGrade {termSelect} />
     {/if}
     <div id="asterisk">
       <div
@@ -81,4 +86,3 @@
     </div>
   </fieldset>
 </div>
-

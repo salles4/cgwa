@@ -25,14 +25,14 @@
 
     <div>
       {#if !studID}
-        <a href="./#/login">Log In</a>
+        <a href="./#/login"><i class="bi bi-person-fill"></i> Log In</a>
       {:else}
         <a
           href="./#/"
           on:click|preventDefault={() => {
             localStorage.removeItem("stud-id");
             location.reload();
-          }}>Log Out</a
+          }}><i class="bi bi-box-arrow-left"></i> Log Out</a
         >
       {/if}
       <button type="button" class="bg-transparent border-0" on:click={toggle}
@@ -45,6 +45,13 @@
 <style>
   * {
     color: white !important;
+  }
+  a{
+    text-decoration: none;
+  }
+  a:hover, a .bi:hover{
+    /* text-decoration: underline; */
+    color: rgb(148, 148, 148) !important;
   }
   .navbar {
     background-color: #0f587d !important;

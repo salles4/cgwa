@@ -9,7 +9,7 @@
   }
 </script>
 
-<main class="container d-flex justify-content-center p-5">
+<main class="container d-flex justify-content-center p-md-5 p-2">
   <div class="login overflow-hidden py-4 px-5 col-lg-6 col-md-8 col-12">
     {#if login}
       <Login on:toggle={toggle} />
