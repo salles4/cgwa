@@ -40,7 +40,11 @@
       <option value="2">Term 3</option>
       <option value="3">Term 4</option>
       <option value="4">Term 5</option>
-      <option value="5" selected>Term 6</option>
+      <option value="5" >Term 6</option>
+      <option value="6" >Term 7</option>
+      <option value="7" >Term 8</option>
+      <option value="8">Term 9</option>
+      <option value="9" selected>Term 10</option>
     </select>
   </div>
   <fieldset>

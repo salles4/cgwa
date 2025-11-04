@@ -46,5 +46,29 @@
       "CTBASNTL": 4.00,
       "CTPRFISS": 4.00,
       "CTWBDEVL": 4.00
+  },
+  {
+    "CTADNETL": 4.00,
+    "CTINPRGL": 4.00,
+    "CTMLSYSL": 4.00,
+    "CTSYSINL": 4.00
+  },
+  {
+    "CTADMUSL": 4.00,
+    "CTINASSL": 4.00,
+    "CTMOBPGL": 4.00,
+    "CTSYSADD": 4.00
+  },
+  {
+    "CCINTHCI": 4.00,
+    "CTADWEBL": 4.00,
+    "CTAINASL": 4.00,
+    "CTAPROJ1": 4.00
+  },
+  {
+    "CTADMOBL": 4.00,
+    "CTAPROJ2": 4.00,
+    "CTSYSADL": 4.00,
+    "CTWBCOML": 4.00
   }
 ]
